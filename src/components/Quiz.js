@@ -116,6 +116,10 @@ const Quiz = () => {
     <DndProvider backend={HTML5Backend}>
       <div className="min-h-screen bg-gradient-to-r from-kitty-blue to-kitty-pink p-8">
         <div className="max-w-6xl mx-auto bg-white rounded-3xl shadow-xl p-8">
+
+          <a href="https://github.com/castroi/english-learning-app" target="_blank">
+          <img src="github.svg" alt="github castroi"/>
+          </a>
           <h1 className="text-4xl font-fredoka text-kitty-pink text-center mb-8 animate-float">
             Match the Words!
           </h1>
