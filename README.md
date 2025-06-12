@@ -40,8 +40,8 @@ This app allows parents to input word-image pairs and children to complete quizz
 **Installation**
 ------------
 
-1. Clone the repository: `git clone https://github.com/castroi/hello-kitty-english.git`
-2. Navigate to the project directory: `cd hello-kitty-english`
+1. Clone the repository: `git clone https://github.com/castroi/english-learning-app.git`
+2. Navigate to the project directory: `cd english-learning-app`
 3. Install dependencies: `npm install`
 4. Start the app: `npm start`
 
