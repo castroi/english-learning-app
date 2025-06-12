@@ -54,6 +54,15 @@ const ParentInput = () => {
         </h1>
         
         <form onSubmit={handleSubmit} className="space-y-6">
+
+
+          {pairs.length > 0 && (
+            <button             onClick={() => navigate('/quiz')}
+              className="w-full mt-8 bg-kitty-blue hover:bg-kitty-pink transition-colors duration-300 text-white font-fredoka py-3 rounded-xl"
+            >
+              Start Quiz!
+            </button>
+          )}
           <div>
             <label className="block font-fredoka text-gray-700 mb-2">Word</label>
             <input               type="text"
