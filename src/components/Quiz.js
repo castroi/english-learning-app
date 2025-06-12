@@ -154,30 +154,7 @@ const Quiz = () => {
               </div>
             </div>
           </div>
-
-          {showResults && (
-            <div className="mt-8 space-y-4">
-              <h2 className="font-fredoka text-2xl text-kitty-pink">Results:</h2>
-              {Object.entries(matches).map(([word, imageUrl]) => (
-                <div key={word} className="flex items-center space-x-4">
-                  <span className="font-fredoka">{word}</span>
-                  {isCorrectMatch(word, imageUrl) ? (
-                    <span className="text-green-500 text-2xl">✔️</span>
-                  ) : (
-                    <span className="text-red-500 text-2xl">❌</span>
-                  )}
-                </div>
-              ))}
-            </div>
-          )}
-
           <div className="mt-8 flex space-x-4">
-            <button
-              onClick={checkAnswers}
-              className="flex-1 bg-kitty-pink hover:bg-kitty-blue transition-colors duration-300 text-white font-fredoka py-3 rounded-xl"
-            >
-              Check Answers
-            </button>
             <button
               onClick={resetQuiz}
               className="flex-1 bg-kitty-blue hover:bg-kitty-pink transition-colors duration-300 text-white font-fredoka py-3 rounded-xl"
