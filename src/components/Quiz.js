@@ -34,7 +34,7 @@ const Word = ({ word, isCorrectMatch, onMatch }) => {
   );
 };
 
-const DraggableImage = ({ url, word }) => {
+const DraggableImage = ({ url, word, isCorrectMatch }) => {
   const [{ isDragging }, drag] = useDrag(() => ({
     type: ItemTypes.IMAGE,
     item: { imageUrl: url },
@@ -43,6 +43,9 @@ const DraggableImage = ({ url, word }) => {
     }),
   }));
 
+  if (isCorrectMatch) {
+    return null;
+  }
   return (
     <div
       ref={drag}
@@ -60,7 +63,6 @@ const DraggableImage = ({ url, word }) => {
 const Quiz = () => {
   const [pairs, setPairs] = useState([]);
   const [matches, setMatches] = useState({});
-  const [showResults, setShowResults] = useState(false);
 
   const loadPairs = () => {
     const savedPairs = localStorage.getItem('wordImagePairs');
@@ -81,7 +83,7 @@ const Quiz = () => {
     }
     return newArray;
   };
-
+  
   const handleMatch = (word, imageUrl) => {
     setMatches(prev => ({
       ...prev,
@@ -97,10 +99,6 @@ const Quiz = () => {
     );
   };
 
-  const checkAnswers = () => {
-    setShowResults(true);
-  };
-
   const resetQuiz = () => {
     const savedPairs = localStorage.getItem('wordImagePairs');
     if (savedPairs) {
@@ -112,12 +110,6 @@ const Quiz = () => {
       setPairs(resetPairs);
     }
     setMatches({});
-    setShowResults(false);
-  };
-
-  const isCorrectMatch = (word, imageUrl) => {
-    const pair = pairs.find(p => p.word === word);
-    return pair.imageUrl === imageUrl;
   };
 
   return (
@@ -140,7 +132,7 @@ const Quiz = () => {
                 />
               ))}
             </div>
-
+              
             <div className="space-y-4">
               <h2 className="font-fredoka text-2xl text-kitty-blue mb-4">Images</h2>
               <div className="grid grid-cols-2 gap-4">
@@ -149,6 +141,7 @@ const Quiz = () => {
                     key={pair.imageUrl}
                     url={pair.imageUrl}
                     word={pair.word}
+                    isCorrectMatch={pair.isCorrectMatch}
                   />
                 ))}
               </div>
