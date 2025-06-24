@@ -31,8 +31,7 @@ const ParentInput = () => {
       setError('Please enter a valid image URL');
       return;
     }
-
-    const newPairs = [...pairs, { word: word.trim(), imageUrl, isCorrectMatch: false }];
+    const newPairs = [{ word: word.trim(), imageUrl, isCorrectMatch: false }, ...pairs];
     setPairs(newPairs);
     localStorage.setItem('wordImagePairs', JSON.stringify(newPairs));
     setWord('');
