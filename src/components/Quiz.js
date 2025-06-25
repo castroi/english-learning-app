@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useDrag, useDrop, DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
+import WordPlayer from './WordPlayer';
 
 const ItemTypes = {
   IMAGE: 'image'
@@ -30,6 +31,8 @@ const Word = ({ word, isCorrectMatch, onMatch }) => {
       ) : (
         <span className="text-red-500 text-2xl">❌</span>
       ))}
+
+        <WordPlayer key={word} word={word} ></WordPlayer>
     </div>
   );
 };
